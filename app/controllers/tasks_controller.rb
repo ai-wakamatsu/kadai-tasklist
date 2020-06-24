@@ -34,7 +34,7 @@ class TasksController < ApplicationController
         flash[:success] = 'タスクが編集されました'
         redirect_to @task
     else
-        flash.now[:danger] = 'タスクが編集されませんでした'
+        flash.now[:danger] = '空欄では投稿できません'
         render :new
     end
   end
