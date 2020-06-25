@@ -1,5 +1,5 @@
 class AddstatusTotask < ActiveRecord::Migration[5.2]
   def change
-    add_column :task, :status, :string
+    add_column :tasks, :status, :string
   end
 end
