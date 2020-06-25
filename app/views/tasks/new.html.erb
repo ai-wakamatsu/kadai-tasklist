@@ -1,6 +1,9 @@
 <h1>タスクの作成</h1>
 
 <%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+     <p>form cannot be blank</p>
+  <% end %>
   <%= f.label :content, 'タスク' %>
   <%= f.text_field :content %>
 
