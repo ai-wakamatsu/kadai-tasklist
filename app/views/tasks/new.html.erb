@@ -2,9 +2,9 @@
 
 <%= form_for(@task) do |f| %>
   <% if @task.errors.any? %>
-     <p>空欄に入力してください。</p>
+     <p>content can't be blank</p>
   <% end %>
-  
+
   <%= f.label :content, 'タスク' %>
   <%= f.text_field :content %>
 
