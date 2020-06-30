@@ -2,9 +2,10 @@
 
 <%= form_for(@task) do |f| %>
   <% if @task.errors.any? %>
-     <p>content can't be blank</p>
+          <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
   <% end %>
-
   <%= f.label :content, 'タスク' %>
   <%= f.text_field :content %>
 
