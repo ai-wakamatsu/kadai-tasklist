@@ -1,10 +1,26 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <div class="row">
+    <aside class="col-sm-3">
+      <%= form_with(model: @task, local: true) do |f| %>
+        
+            <%= f.label :content, 'タスク' %>
+            <%= f.text_field :content %>
+            
+            <%= f.label :status, '状況' %>
+            <%= f.text_field :status %>
+      
+        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+      <% end %>
+    </aside>
+    <div class="col-sm-9">
+      <%= render 'tasks/tasks', tasks: @tasks %>
+    </div>
+  </div>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
       <h1>Welcome to the Tasklist</h1>
-      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to 'Log in', login_path, class: 'btn btn-lg btn-primary' %>
     </div>
   </div>
 <% end %>
